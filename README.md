@@ -3,7 +3,7 @@
 ## Introduction ##
 This is a REST API for an e-commerce website backend based on three models: Products, Orders and Users. 
 The API provides a number of endpoints for CRUD and custom operations to retrieve and modify database data. 
-The API endpoints and methods created as well as the specific requirements for sending requests to each endpoint, data shapes, and database design are described in the `REQUIREMENTS.md` file (https://github.com/fedeval/storefront-backend-api/blob/main/REQUIREMENTS.md).
+The API endpoints and methods created as well as the specific requirements for sending requests to each endpoint, data shapes, and database design are described in the `REQUIREMENTS.md` file (https://github.com/achie23/Project_2-Build-A-Storefront-Backend/blob/master/REQUIREMENTS.md).
 
 ---
 ## Project Setup ##
