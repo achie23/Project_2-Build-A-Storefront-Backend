@@ -7,6 +7,6 @@ const userMethods = new UserHandler();
 
 users.get('/index', verifyAuthToken, userMethods.index);
 users.get('/show-users/:id', verifyAuthToken, userMethods.show);
-users.post('/create-users', verifyAuthToken, userMethods.create);
+users.post('/create-users', userMethods.create);
 
 export default users;
