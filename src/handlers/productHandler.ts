@@ -8,13 +8,23 @@ const store = new ProductStore();
 export class ProductHandler {
   // show all products
   async index(_req: Request, res: Response) {
-    const products = await store.index();
-    res.json(products);
+    try {
+      const products = await store.index();
+      res.json(products);
+    } catch (error) {
+      res.status(400);
+      res.json(error);
+    }
   }
   // show a product with a specific id
   async show(_req: Request, res: Response) {
-    const product = await store.show(_req.params.id);
-    res.json(product);
+    try {
+      const product = await store.show(_req.params.id);
+      res.json(product);
+    } catch (error) {
+      res.status(400);
+      res.json(error);
+    }
   }
   // create a new product
   async create(req: Request, res: Response) {
@@ -35,8 +45,13 @@ export class ProductHandler {
   }
   // get list of products sorter by category
   async getProductsByCategory(_req: Request, res: Response) {
-    const getProductsByCategory = await store.getProductsByCategory();
-    res.status(200);
-    res.json(getProductsByCategory);
+    try {
+      const getProductsByCategory = await store.getProductsByCategory();
+      res.status(200);
+      res.json(getProductsByCategory);
+    } catch (error) {
+      res.status(400);
+      res.json(error);
+    }
   }
 }
