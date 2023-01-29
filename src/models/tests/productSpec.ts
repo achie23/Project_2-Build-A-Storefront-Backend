@@ -35,6 +35,13 @@ describe('Product Model', () => {
     );
   });
 
+  it('should show all products', async () => {
+    const result = await store.index();
+    expect(typeof result).toBe(
+      'object'
+    );
+  });
+
   it('should show products by the categories', async () => {
     const result = await store.getProductsByCategory();
     expect(typeof result).toBe(
