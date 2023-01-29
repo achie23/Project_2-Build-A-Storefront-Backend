@@ -49,7 +49,7 @@ class UserModel {
             const result = await connection.query(sql, [firstname, lastname, hash]);
             const user = result.rows[0];
             connection.release();
-            return [user];
+            return user;
         }
         catch (error) {
             throw new Error(`Cannot add user. Error: ${error}`);

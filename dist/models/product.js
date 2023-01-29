@@ -44,7 +44,7 @@ class ProductStore {
             const result = await connection.query(sql, [name, price, category]);
             const product = result.rows[0];
             connection.release();
-            return [product];
+            return product;
         }
         catch (error) {
             throw new Error(`Unable to add product, ${name}: ${error}`);

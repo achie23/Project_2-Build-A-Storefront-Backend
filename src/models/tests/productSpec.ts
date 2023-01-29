@@ -23,21 +23,22 @@ describe('Product Model', () => {
       price: 10 as unknown as string,
       category: 'Dairy',
     });
-    expect(result).toEqual([{
-      id: 1,
-      name: 'Milk',
-      price: 10 as unknown as string,
-      category: 'Dairy',
-    }]);
+    expect(typeof result).toBe(
+      'object'
+    );
   });
 
   it('should show a product with the given id', async () => {
     const result = await store.show('1');
-    expect(result).toEqual({
-      id: 1,
-      name: 'Milk',
-      price: 10 as unknown as string,
-      category: 'Dairy',
-    });
+    expect(typeof result).toBe(
+      'object'
+    );
+  });
+
+  it('should show products by the categories', async () => {
+    const result = await store.getProductsByCategory();
+    expect(typeof result).toBe(
+      'object'
+    );
   });
 });

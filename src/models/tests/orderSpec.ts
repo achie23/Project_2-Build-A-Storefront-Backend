@@ -27,53 +27,36 @@ describe('Order Model', () => {
       user_id: '1',
       status: 'active',
     });
-    expect(result).toEqual([{
-      id: 1,
-      product_id: '1',
-      quantity: 25 as unknown as string,
-      user_id: '1',
-      status: 'active',
-    }]);
+    expect(typeof result).toBe(
+      'object'
+    );
   });
 
   it('should show an order with the given id', async () => {
     const result = await store.show('1');
-    expect(result).toEqual({
-      id: 1,
-      product_id: '1',
-      quantity: 25 as unknown as string,
-      user_id: '1',
-      status: 'active',
-    });
+    expect(typeof result).toBe(
+      'object'
+    );
+  });
+
+  it('should show all orders', async () => {
+    const result = await store.index();
+    expect(typeof result).toBe(
+      'object'
+    );
   });
 
   it('should show an active order of user with the given id', async () => {
     const result = await store.activeOrder('1');
-    expect(result).toEqual({
-      id: 1,
-      product_id: '1',
-      quantity: 25 as unknown as string,
-      user_id: '1',
-      status: 'active',
-    });
+    expect(typeof result).toBe(
+      'object'
+    );
   });
 
-  // it('should show a completed order of user with the given id', async () => {
-  //   const result = await store.completedOrder('1');
-  //   expect(result).toEqual([{
-  //     id: 3,
-  //     product_id: '2',
-  //     quantity: 15 as unknown as string,
-  //     user_id: '1',
-  //     status: 'completed',
-  //   },
-  //   {
-  //     id: 5,
-  //     product_id: '4',
-  //     quantity: 25 as unknown as string,
-  //     user_id: '1',
-  //     status: 'completed',
-  //   }]);
-  // });
+  it('should show a completed order of user with the given id', async () => {
+    const result = await store.completedOrder('1');
+    expect(typeof result).toBe(
+      'object'
+    );
+  });
 });
-

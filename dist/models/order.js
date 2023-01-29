@@ -49,7 +49,7 @@ class OrderStore {
             ]);
             const order = result.rows[0];
             connection.release();
-            return [order];
+            return order;
         }
         catch (error) {
             throw new Error(`Unable to add order. ${error}`);

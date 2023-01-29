@@ -42,7 +42,7 @@ export class UserModel {
     }
   }
   // create user api endpoint model
-  async create(user: User): Promise<User[]> {
+  async create(user: User): Promise<User> {
     const { firstname, lastname, password } = user;
     try {
       const connection = await client.connect();
@@ -52,7 +52,7 @@ export class UserModel {
       const result = await connection.query(sql, [firstname, lastname, hash]);
       const user = result.rows[0];
       connection.release();
-      return [user];
+      return user;
     } catch (error) {
       throw new Error(`Cannot add user. Error: ${error}`);
     }

@@ -10,5 +10,5 @@ const users = express_1.default.Router();
 const userMethods = new userHandler_1.UserHandler();
 users.get('/index', verifyToken_1.default, userMethods.index);
 users.get('/show-users/:id', verifyToken_1.default, userMethods.show);
-users.post('/create-users', verifyToken_1.default, userMethods.create);
+users.post('/create-users', userMethods.create);
 exports.default = users;

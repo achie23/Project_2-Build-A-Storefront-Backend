@@ -8,12 +8,11 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 dotenv_1.default.config();
 const tokenSecret = process.env.TOKEN_SECRET;
 // Verify authorization token
-const verifyAuthToken = (req, res, next) => {
+const verifyAuthToken = (req, res) => {
     try {
         const authorizationHeader = req.headers['authorization'];
         const token = authorizationHeader.split(' ')[1];
         jsonwebtoken_1.default.verify(token, tokenSecret);
-        next();
     }
     catch (error) {
         res.status(401);

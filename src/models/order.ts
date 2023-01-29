@@ -38,7 +38,7 @@ export class OrderStore {
     }
   }
   // create order api endpoint model
-  async create(data: Order): Promise<Order[]> {
+  async create(data: Order): Promise<Order> {
     const { product_id, quantity, user_id, status } = data;
     try {
       const connection = await client.connect();
@@ -52,7 +52,7 @@ export class OrderStore {
       ]);
       const order = result.rows[0];
       connection.release();
-      return [order];
+      return order;
     } catch (error) {
       throw new Error(`Unable to add order. ${error}`);
     }

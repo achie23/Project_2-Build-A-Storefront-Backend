@@ -37,7 +37,7 @@ export class ProductStore {
     }
   }
   // create product api endpoint model
-  async create(data: Product): Promise<Product[]> {
+  async create(data: Product): Promise<Product> {
     const { name, price, category } = data;
     try {
       const connection = await client.connect();
@@ -46,7 +46,7 @@ export class ProductStore {
       const result = await connection.query(sql, [name, price, category]);
       const product = result.rows[0];
       connection.release();
-      return [product];
+      return product;
     } catch (error) {
       throw new Error(`Unable to add product, ${name}: ${error}`);
     }
